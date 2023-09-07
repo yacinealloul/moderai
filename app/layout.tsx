@@ -14,6 +14,7 @@ export const metadata: Metadata = {
   openGraph:{
       title: 'Moder.ai',
       description: 'Streamline your workflow with advanced text processing and moderation.',
+      images:['https://imgur.com/0gvHYoi'],
 
   }
 }
