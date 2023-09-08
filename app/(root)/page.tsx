@@ -29,7 +29,7 @@ export default function Home() {
             Automated Text Analysis
           </h1>
           <p className="mb-8 text-xl max-w-2xl mx-auto">Streamline your workflow with advanced text processing and moderation.</p>
-          <a href="/signup" className="inline-block bg-white hover:bg-gray-200 text-blue-900 rounded-full py-4 px-8 text-xl font-semibold transition transform hover:-translate-y-1 hover:scale-110">
+          <a href="/sign-up" className="inline-block bg-white hover:bg-gray-200 text-blue-900 rounded-full py-4 px-8 text-xl font-semibold transition transform hover:-translate-y-1 hover:scale-110">
             Get Started
           </a>
         </div>

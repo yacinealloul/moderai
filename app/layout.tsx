@@ -11,6 +11,7 @@ const inter = Inter({ subsets: ['greek'] })
 export const metadata: Metadata = {
   title: 'Moder.ai',
   description: 'Streamline your workflow with advanced text processing and moderation.',
+  keywords: ["Text Moderation", "Content Filtering", "Moderation Automation", "AI for Moderation", "Online Moderation Tool", "Content Safety", "Real-time Moderation", "Comment Management", "Inappropriate Content Detection", "User-generated Content Control"],
   openGraph:{
       title: 'Moder.ai',
       description: 'Streamline your workflow with advanced text processing and moderation.',
