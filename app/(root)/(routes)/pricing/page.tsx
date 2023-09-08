@@ -33,7 +33,7 @@ const Pricing: React.FC = () => {
         
                         <div className="bg-white p-8 rounded-2xl shadow-lg transition-transform duration-300 hover:scale-105">
                             <h2 className="text-4xl font-extrabold text-center mb-6">Custom Plan</h2>
-                            <p className="text-center text-xl mb-6 opacity-80">Let's Talk</p>
+                            <p className="text-center text-xl mb-6 opacity-80">Let&apos;s Talk</p>
                             <p className="text-center text-gray-600 mb-8">Custom requests volume</p>
                             <a href="/contact" className="block w-full text-center py-3 px-6 bg-blue-600 text-white rounded-md hover:bg-blue-500 transition-colors">Contact Us</a>
                         </div>
