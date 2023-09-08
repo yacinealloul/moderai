@@ -69,7 +69,7 @@ export default function HowItWorks() {
             </div>
             <div className="text-center">
               <h3 className="text-3xl font-bold mb-4">Scalability</h3>
-              <p>Our system scales with your needs. Whether it's 10 texts or 10 million, we've got you covered.</p>
+              <p>Our system scales with your needs. Whether it &apos; s 10 texts or 10 million, we&apos;ve got you covered.</p>
             </div>
           </div>
         </div>
