@@ -2,7 +2,7 @@ import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import { ClerkProvider } from '@clerk/nextjs'
-import Navbar from '@/components/navbar'
+import Navbar from '@/components/Navbar'
 import { useAuth } from '@clerk/nextjs'
 
 
@@ -28,7 +28,6 @@ export default function RootLayout({
   return (
     <ClerkProvider>
     <html lang="en">
-      
       <body className={inter.className}>
       <Navbar/>
         {children}
