@@ -85,8 +85,8 @@ const Navbar: React.FC = () => {
             Support
           </span>
         </Link>
-      
         <UserButton></UserButton>
+
       </div>
       
       </>
