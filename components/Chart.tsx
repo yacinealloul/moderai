@@ -27,8 +27,8 @@ const valueFormatter = (number: number) => `$ ${Intl.NumberFormat("us").format(n
 export function Bar() {
   return (
     <Card className="mx-auto">
-      <Text>Gross Volume</Text>
-      <Metric>$ 12,699</Metric>
+      <Text>Overview usage (weekly)</Text>
+      <Metric>120 639</Metric>
       <AreaChart
         className="mt-8 h-44"
         data={data}
