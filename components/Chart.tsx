@@ -39,8 +39,6 @@ export function Bar() {
         showYAxis={false}
         showLegend={false}
       />
-
-
     </Card>
   );
 }
