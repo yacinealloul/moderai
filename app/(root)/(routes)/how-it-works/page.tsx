@@ -16,7 +16,7 @@ export default function HowItWorks() {
       <section className="bg-blue-900 text-white relative pt-20 pb-32">
         <div className="container mx-auto px-4 text-center relative z-10">
           <h1 className="text-7xl font-extrabold leading-tight mb-4 drop-shadow-xl">
-          Here's how it works 👋
+          Here&apos;s how it works 👋
           </h1>
           <p className="mb-8 text-xl max-w-2xl mx-auto">Learn how moder.ai can transform your approach to text processing.
 .</p>
