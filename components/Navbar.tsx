@@ -9,8 +9,8 @@ const Navbar: React.FC = () => {
 
   return (
   <nav className="top-0 flex items-center justify-between py-4 bg-gray-900 w-full px-4 border-b border-gray-800">
-    <div className="text-3xl flex-col font-extrabold text-white tracking-wide">
-      <Link href="/">
+  <div className="text-3xl flex items-center font-extrabold text-white tracking-wide">
+    <Link href="/" className='inline-block flex items-center'>
       <svg width="43" height="45" viewBox="0 0 86 90" fill="none" xmlns="http://www.w3.org/2000/svg">
 <rect x="14.0348" y="16" width="67" height="65" rx="15" fill="white"/>
 <path d="M76.0348 77L76.0348 21" stroke="white" stroke-width="10" stroke-linecap="round"/>
@@ -28,6 +28,7 @@ const Navbar: React.FC = () => {
 <rect x="45" y="70" width="25" height="20" rx="5" fill="#141524"/>
 <rect x="65.0348" y="37" width="20" height="20" rx="5" fill="#141524"/>
       </svg>
+      <span className='mx-5'>moder.ai</span>
       </Link>
     </div>
     {!userId && (
