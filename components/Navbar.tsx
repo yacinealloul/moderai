@@ -32,60 +32,53 @@ const Navbar: React.FC = () => {
       <span className='mx-5'>moder.ai</span>
       </Link>
     </div>
-    {!userId && (
-  <div className="relative md:flex md:items-center">
-  {/* Button visible only on mobile */}
-  <button 
-    onClick={() => setMenuOpen(!isMenuOpen)} 
-    className="md:hidden px-3 py-2 border rounded text-white border-white"
-  >
-    ☰
-  </button>
 
-  {/* Navigation links */}
-  <div className={`absolute top-full left-0 w-64 mt-2 flex flex-col space-y-4 bg-gray-900 text-white rounded-lg shadow-lg md:static md:flex-row md:space-x-6 md:w-auto md:space-y-0 ${isMenuOpen ? 'block' : 'hidden'} md:block`}>
-    <Link href="/how-it-works">
-      <span className="text-lg text-white hover:text-gray-400 transition ease-in-out duration-150">
-        How it works
-      </span>
-    </Link>
-    <Link href="/pricing">
-      <span className="text-lg text-white hover:text-gray-400 transition ease-in-out duration-150">
-        Pricing
-      </span>
-    </Link>
-    <Link href="/demo">
-      <span className="text-lg text-white hover:text-gray-400 transition ease-in-out duration-150">
-        Demo
-      </span>
-    </Link>
-    <Link href="/blog">
-      <span className="text-lg text-white hover:text-gray-400 transition ease-in-out duration-150">
-        Blog
-      </span>
-    </Link>
-    <Link href="/sign-in">
-      <span className="text-lg text-white hover:text-gray-400 transition ease-in-out duration-150 font-semibold border border-white px-5 py-2 rounded">
-        Sign in
-      </span>
-    </Link>
-    <Link href="/start-for-free">
-      <span className="text-white text-lg bg-gradient-to-r from-teal-500 to-blue-500 hover:from-teal-400 hover:to-blue-400 px-6 py-2 rounded-full shadow-md transition transform hover:scale-105">
-        Start for free
-      </span>
-    </Link>
-  </div>
-</div>
+    {!userId ? (
+      <div className="relative md:flex md:items-center">
+        {/* Hamburger Button visible only on mobile */}
+        <button 
+          onClick={() => setMenuOpen(!isMenuOpen)} 
+          className="md:hidden px-3 py-2 border rounded text-white border-white"
+        >
+          ☰
+        </button>
 
-)}
-
-
-
-    {
-      userId && (
-      <>
-            <div className="flex items-center space-x-6">
-
+        {/* Navigation links for non-logged-in users */}
+        <div className={`absolute top-full left-0 w-64 mt-2 flex flex-col space-y-4 bg-gray-900 text-white rounded-lg shadow-lg md:static md:flex-row md:space-x-6 md:w-auto md:space-y-0 ${isMenuOpen ? 'block' : 'hidden'} md:block`}>
+          <Link href="/how-it-works">
+            <span className="text-lg text-white hover:text-gray-400 transition ease-in-out duration-150">
+              How it works
+            </span>
+          </Link>
+          <Link href="/pricing">
+            <span className="text-lg text-white hover:text-gray-400 transition ease-in-out duration-150">
+              Pricing
+            </span>
+          </Link>
+          <Link href="/demo">
+            <span className="text-lg text-white hover:text-gray-400 transition ease-in-out duration-150">
+              Demo
+            </span>
+          </Link>
+          <Link href="/blog">
+            <span className="text-lg text-white hover:text-gray-400 transition ease-in-out duration-150">
+              Blog
+            </span>
+          </Link>
+          <Link href="/sign-in">
+            <span className="text-lg text-white hover:text-gray-400 transition ease-in-out duration-150 font-semibold border border-white px-5 py-2 rounded">
+              Sign in
+            </span>
+          </Link>
+          <Link href="/start-for-free">
+            <span className="text-white text-lg bg-gradient-to-r from-teal-500 to-blue-500 hover:from-teal-400 hover:to-blue-400 px-6 py-2 rounded-full shadow-md transition transform hover:scale-105">
+              Start for free
+            </span>
+          </Link>
+        </div>
+      </div>
+    ) : (
+      <div className="hidden md:flex items-center space-x-6">
         <Link href="/dashboard">
           <span className="text-lg text-white hover:text-gray-400 transition ease-in-out duration-150">
             Dashboard
@@ -101,13 +94,12 @@ const Navbar: React.FC = () => {
             Support
           </span>
         </Link>
-        <UserButton></UserButton>
-
+        {/* You can use the UserButton here if it's a component */}
+        <UserButton />
       </div>
-      
-      </>
-      )
-    }
+    )}
+
+
   </nav>
   
   );
