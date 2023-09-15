@@ -27,7 +27,9 @@ const Dashboard: React.FC = async () => {
   return (
           <>
               <main className="p-10">
-                  <h2 className='bold'>Hello {user?.firstName}</h2>
+                <div className='extra-bold'>
+                  <Metric>Hello {user?.firstName}✨</Metric>
+                  </div>
                   <DashboardPanel />
               </main>
 

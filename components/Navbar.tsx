@@ -3,10 +3,11 @@ import React from 'react';
 import Link from 'next/link';
 import { useAuth } from '@clerk/nextjs';
 import { UserButton } from '@clerk/nextjs';
+import { useState } from 'react';
 
 const Navbar: React.FC = () => {
   const { userId } = useAuth();
-
+  const [isMenuOpen,setMenuOpen] = useState(false);
   return (
   <nav className="top-0 flex items-center justify-between py-4 bg-gray-900 w-full px-4 border-b border-gray-800">
   <div className="text-3xl flex items-center font-extrabold text-white tracking-wide">
@@ -32,39 +33,53 @@ const Navbar: React.FC = () => {
       </Link>
     </div>
     {!userId && (
-      <div className="flex items-center space-x-6">
-        <Link href="/how-it-works">
-          <span className="text-lg text-white hover:text-gray-400 transition ease-in-out duration-150">
-            How it works
-          </span>
-        </Link>
-        <Link href="/pricing">
-          <span className="text-lg text-white hover:text-gray-400 transition ease-in-out duration-150">
-            Pricing
-          </span>
-        </Link>
-        <Link href="/demo">
-          <span className="text-lg text-white hover:text-gray-400 transition ease-in-out duration-150">
-            Demo
-          </span>
-        </Link>
-        <Link href="/blog">
-          <span className="text-lg text-white hover:text-gray-400 transition ease-in-out duration-150">
-            Blog
-          </span>
-        </Link>
-        <Link href="/sign-in">
-          <span className="text-lg text-white hover:text-gray-400 transition ease-in-out duration-150 font-semibold border border-white px-5 py-2 rounded">
-            Sign in
-          </span>
-        </Link>
-        <Link href="/start-for-free">
-          <span className="text-white text-lg bg-gradient-to-r from-teal-500 to-blue-500 hover:from-teal-400 hover:to-blue-400 px-6 py-2 rounded-full shadow-md transition transform hover:scale-105">
-            Start for free
-          </span>
-        </Link>
-      </div>
-    )}
+  <div className="relative md:flex md:items-center">
+  {/* Button visible only on mobile */}
+  <button 
+    onClick={() => setMenuOpen(!isMenuOpen)} 
+    className="md:hidden px-3 py-2 border rounded text-white border-white"
+  >
+    ☰
+  </button>
+
+  {/* Navigation links */}
+  <div className={`absolute top-full left-0 w-64 mt-2 flex flex-col space-y-4 bg-gray-900 text-white rounded-lg shadow-lg md:static md:flex-row md:space-x-6 md:w-auto md:space-y-0 ${isMenuOpen ? 'block' : 'hidden'} md:block`}>
+    <Link href="/how-it-works">
+      <span className="text-lg text-white hover:text-gray-400 transition ease-in-out duration-150">
+        How it works
+      </span>
+    </Link>
+    <Link href="/pricing">
+      <span className="text-lg text-white hover:text-gray-400 transition ease-in-out duration-150">
+        Pricing
+      </span>
+    </Link>
+    <Link href="/demo">
+      <span className="text-lg text-white hover:text-gray-400 transition ease-in-out duration-150">
+        Demo
+      </span>
+    </Link>
+    <Link href="/blog">
+      <span className="text-lg text-white hover:text-gray-400 transition ease-in-out duration-150">
+        Blog
+      </span>
+    </Link>
+    <Link href="/sign-in">
+      <span className="text-lg text-white hover:text-gray-400 transition ease-in-out duration-150 font-semibold border border-white px-5 py-2 rounded">
+        Sign in
+      </span>
+    </Link>
+    <Link href="/start-for-free">
+      <span className="text-white text-lg bg-gradient-to-r from-teal-500 to-blue-500 hover:from-teal-400 hover:to-blue-400 px-6 py-2 rounded-full shadow-md transition transform hover:scale-105">
+        Start for free
+      </span>
+    </Link>
+  </div>
+</div>
+
+)}
+
+
 
     {
       userId && (

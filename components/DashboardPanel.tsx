@@ -1,6 +1,8 @@
 "use client";
 import React from 'react'
 import {Bar} from '@/components/Chart';
+import DashboardDetails from '@/components/DashboardDetails';
+import Billing from '@/components/Billing';
 import {
     Card,
     Grid,
@@ -62,7 +64,6 @@ const DashboardPanel = () => {
                             </Card>
                             </div>
                          
-                            {/* Placeholder to set height */}
                             <div className="h-28 border-3">
                             <Card className="max-w-lg mx-auto" color="white">
                             <Flex alignItems="start">
@@ -90,11 +91,11 @@ const DashboardPanel = () => {
                         </div>
                       </TabPanel>
                       <TabPanel>
-                        <h1>Tab 1</h1>
+                        <DashboardDetails />
                       </TabPanel>
 
                       <TabPanel>
-                        <h1>Tab 2</h1>
+                        <Billing />
                       </TabPanel>
 
                       <TabPanel>
