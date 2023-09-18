@@ -15,7 +15,7 @@ type Transaction = {
 
 const mockTransactions: Transaction[] = [
   { date: "2023-01-01", plan: "Basic", amount: 9.99 ,totalRequest:13000,success : true},
-  { date: "2023-02-01", plan: "Pro", amount: 19.99,totalRequest:1300000,success:true },
+  { date: "2023-02-01", plan: "Pro", amount: 19.99,totalRequest:1300000,success:false },
   //... Add more transactions as needed
 ];
 
@@ -53,7 +53,8 @@ export default function Billing() {
                 <TableCell>{transaction.totalRequest}</TableCell>
 
                 <TableCell className="text-right">${transaction.amount}</TableCell>
-                <TableCell className="text-right">{transaction.success && ("✅") }</TableCell>
+                <TableCell className="text-right">{transaction.success && ("✅") || !transaction.success && ("❌")  }</TableCell>
+
 
               </TableRow>
             ))}

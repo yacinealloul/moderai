@@ -1,8 +1,9 @@
 "use client";
 import React from 'react'
 import {Bar} from '@/components/Chart';
-import DashboardDetails from '@/components/DashboardDetails';
-import Billing from '@/components/Billing';
+import DashboardDetails from './DashboardDetails';
+import Billing from './Billing';
+import Settings from './Settings';
 import {
     Card,
     Grid,
@@ -99,7 +100,7 @@ const DashboardPanel = () => {
                       </TabPanel>
 
                       <TabPanel>
-                        <h1>Tab 3</h1>
+                        <Settings />
                       </TabPanel>
 
                     </TabPanels>
