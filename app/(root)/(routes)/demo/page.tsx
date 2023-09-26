@@ -1,67 +1,73 @@
 "use client";
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
-export default function Demo() {
-  const [input, setInput] = useState("");
-  const [response, setResponse] = useState("");
-  const [requestsMade, setRequestsMade] = useState(0);
-  const maxRequests = 10;
+const Playground: React.FC = () => {
+    const [content, setContent] = useState('');
+    const [moderationContext, setModerationContext] = useState('');
+    const [response, setResponse] = useState('');
 
-  useEffect(() => {
-    const todayRequests = localStorage.getItem('todayRequests');
+    const handleModerate = () => {
+        console.log('Content to moderate:', content, 'with context:', moderationContext);
+        setResponse(`{
+  "status": "Moderated",
+  "message": "This is a safe content!"
+}`);
+    };
 
-    if (todayRequests) {
-      setRequestsMade(parseInt(todayRequests));
-    }
-  }, []);
+    return (
+        <div className="min-h-screen bg-gray-100">
 
-  const handleTest = () => {
-    if (requestsMade >= maxRequests) {
-      setResponse('Maximum number of requests reached for today.');
-      return;
-    }
-    
-    setResponse(`Your simulated response based on: ${input}`);
-    localStorage.setItem('todayRequests', (requestsMade + 1).toString());
-    setRequestsMade(prev => prev + 1);
-  };
-
-  return (
-    <div className="min-h-screen bg-gray-100 text-gray-900 antialiased py-20">
-      <div className="container mx-auto px-4">
-        {/* Playground Section */}
-        <section className="py-20">
-          <div className="flex">
-            <div className="w-1/2 pr-8">
-              <h2 className="text-5xl font-extrabold mb-6">Playground</h2>
-              <textarea 
-                className="w-full p-4 rounded-lg bg-white shadow-lg transition-all duration-500 hover:shadow-xl resize-none" 
-                rows={9} 
-                value={input} 
-                onChange={(e) => setInput(e.target.value)}
-                disabled={requestsMade >= maxRequests}
-              />
-              <button 
-                className="mt-4 p-3 rounded-lg text-white bg-gradient-to-r from-blue-900 to-blue-700 hover:from-blue-700 hover:to-blue-500 w-full"
-                onClick={handleTest}
-              >
-                Test
-              </button>
-              <p className="mt-4 text-red-500">{requestsMade >= maxRequests && 'You have reached the daily limit of 10 requests.'}</p>
+            {/* Header */}
+            <div className="text-center p-6 bg-white shadow-md mb-6">
+                <div className="text-4xl font-extrabold mb-3">Playground</div>
+                <div className="text-lg text-gray-600">Test your moderation API in real-time.</div>
             </div>
-            <div className="w-1/2 pl-8">
-              <h2 className="text-5xl font-extrabold mb-6">Response</h2>
-              <div className="p-4 rounded-lg bg-blue-50 text-gray-900 h-full border-l-4 border-blue-900">
-                <code>
-                  {response || `{
-    "response": "Your JSON will appear here."
-  }`}
-                </code>
-              </div>
+
+            <div className="flex p-6 space-x-6">
+
+                {/* Context Box */}
+                <div className="flex-1">
+                    <label className="font-semibold mb-2 block">Context:</label>
+                    <input
+                        type="text"
+                        value={moderationContext}
+                        onChange={(e) => setModerationContext(e.target.value)}
+                        className="w-full bg-gray-200 p-2 rounded-md shadow-inner"
+                        placeholder="Enter moderation context..."
+                    />
+                </div>
+
+                {/* Content Box */}
+                <div className="flex-1">
+                    <label className="font-semibold mb-2 block">Content:</label>
+                    <textarea
+                        value={content}
+                        onChange={(e) => setContent(e.target.value)}
+                        className="w-full bg-gray-300 p-4 rounded-md shadow-inner resize-none"
+                        style={{ minHeight: '200px', fontFamily: 'monospace' }}
+                        placeholder="Paste the content here..."
+                    ></textarea>
+                    <div className="mt-4 text-center">
+                        <button
+                            onClick={handleModerate}
+                            className="py-2 px-6 bg-gradient-to-r from-blue-500 to-green-500 hover:from-blue-600 hover:to-green-600 transition duration-300 rounded-md text-white font-medium shadow-md"
+                        >
+                            Moderate
+                        </button>
+                    </div>
+                </div>
+
+                {/* Output Box */}
+                <div className="flex-1">
+                    <label className="font-semibold mb-2 block">Output:</label>
+                    <pre className="w-full bg-gray-300 text-black p-4 rounded-md shadow-inner" style={{ minHeight: '200px', fontFamily: 'monospace' }}>
+                        {response || 'Results will be displayed here.'}
+                    </pre>
+                </div>
+
             </div>
-          </div>
-        </section>
-      </div>
-    </div>
-  );
-}
+        </div>
+    );
+};
+
+export default Playground;

@@ -3,7 +3,7 @@ import React from 'react'
 const Hero = () => {
   return (
     <>
-    <section className="bg-blue-900 text-white relative pt-20 pb-32">
+    <section className="bg-blue-900 text-white relative pt-20 pb-32 h-full max-h-5xl ">
         <div className="container mx-auto px-4 text-center relative z-10">
             <h1 className="text-5xl sm:text-6xl md:text-5xl lg:text-7xl font-extrabold leading-tight mb-4 drop-shadow-xl">
                 ⚙️ AI-Powered Text Processing
@@ -16,6 +16,8 @@ const Hero = () => {
             </a>
         </div>
         <div className="absolute inset-0 bg-black opacity-50"></div>
+        <br></br><br></br>
+        <br></br><br></br>
     </section>
 
 
