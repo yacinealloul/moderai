@@ -29,7 +29,7 @@ const Navbar: React.FC = () => {
 <rect x="45" y="70" width="25" height="20" rx="5" fill="#141524"/>
 <rect x="65.0348" y="37" width="20" height="20" rx="5" fill="#141524"/>
       </svg>
-      <span className='mx-5'>moder.ai</span>
+      <span className='mx-5'>flagged.ai</span>
       </Link>
     </div>
 

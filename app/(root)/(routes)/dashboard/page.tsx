@@ -23,6 +23,9 @@ import { currentUser } from '@clerk/nextjs';
 const Dashboard: React.FC = async () => {  
 
   const user = await currentUser();
+  // localStorage.setItem('email',String(user?.emailAddresses));
+  // localStorage.setItem('name',String(user?.firstName));
+  // localStorage.setItem('prenom',String(user?.lastName));
 
   return (
           <>
