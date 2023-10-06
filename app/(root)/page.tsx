@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     description: 'Integrate Flagged.ai for efficient content moderation solutions in your application.',
     type: 'website',  // Can be other types like 'article', depending on your content
     images: {
-      url: 'https://media.discordapp.net/attachments/1005203757275029606/1159879801658679437/image.png?ex=6532a13e&is=65202c3e&hm=aae1ed0e255daa17df58c946f4876470d67f58474bae808e017414a7e891576c&=',  // Replace with your image path
+      url: 'https://media.discordapp.net/attachments/1005203757275029606/1159879801658679437/image.png?ex=6532a13e&is=65202c3e&hm=aae1ed0e255daa17df58c946f4876470d67f58474bae808e017414a7e891576c&=&',  // Replace with your image path
       alt: 'Description of the image',  // Useful for accessibility
       width: 1200,  // Ideally at least 1200 pixels wide
       height: 630,  // Ideally 630 pixels tall
