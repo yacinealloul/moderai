@@ -15,11 +15,11 @@ const endpoints: Endpoint[] = [
     name: "/check",
     method: "POST",
     description: "This endpoint checks the moderation status of a message.",
-    curlExample: "curl -X POST https://api.moder.ai/check -H 'Authorization: Bearer YOUR_KEY' -d '{\"message\":\"test\"}'",
+    curlExample: "curl -X POST https://us-central1-moderai-c1f42.cloudfunctions.net/api/check -H 'Authorization: Bearer YOUR_KEY' -d '{\"message\":\"test\"}'",
     pythonExample: `
 import requests
 
-url = 'https://api.moder.ai/check'
+url = 'https://us-central1-moderai-c1f42.cloudfunctions.net/api/check'
 headers = {
     'Authorization': 'Bearer YOUR_KEY'
 }
@@ -33,7 +33,7 @@ print(response.json())
     nodeExample: `
 const axios = require('axios');
 
-const url = 'https://api.moder.ai/check';
+const url = 'https://us-central1-moderai-c1f42.cloudfunctions.net/api/check';
 const headers = {
     'Authorization': 'Bearer YOUR_KEY'
 };
