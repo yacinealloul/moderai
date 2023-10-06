@@ -70,7 +70,7 @@ export default function HowItWorks() {
         {/* Feature 3 */}
         <div className="p-6 bg-white rounded-lg shadow-lg">
           <h3 className="text-xl font-bold mb-4">Top-tier Security</h3>
-          <p className="text-gray-600">We prioritize your data's safety. Rely on our robust security features to keep your information protected.</p>
+          <p className="text-gray-600">We prioritize your data&apos;s safety. Rely on our robust security features to keep your information protected.</p>
         </div>
       </div>
     </div>
@@ -88,13 +88,13 @@ export default function HowItWorks() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
         {/* Testimonial 1 */}
         <div className="p-6 bg-white rounded-lg shadow-lg">
-          <blockquote className="text-gray-600 italic">"Using flagged.ai has drastically improved our moderation workflow. It's the best tool on the market!"</blockquote>
+          <blockquote className="text-gray-600 italic">&quot;Using flagged.ai has drastically improved our moderation workflow. It&apos;s the best tool on the market!&quot;</blockquote>
           <cite className="mt-4 block font-bold">- Alex Smith, CTO at TechCorp</cite>
         </div>
 
         {/* Testimonial 2 */}
         <div className="p-6 bg-white rounded-lg shadow-lg">
-          <blockquote className="text-gray-600 italic">"I was skeptical at first, but now I can't imagine our processes without flagged.ai. Highly recommended!"</blockquote>
+          <blockquote className="text-gray-600 italic">&quot; I was skeptical at first, but now I can&apos;t imagine our processes without flagged.ai. Highly recommended!&quot;</blockquote>
           <cite className="mt-4 block font-bold">- Jamie Doe, Product Manager</cite>
         </div>
       </div>
