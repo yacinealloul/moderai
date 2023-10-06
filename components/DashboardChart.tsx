@@ -25,6 +25,7 @@ const DashboardChart: React.FC<DashboardChartProps> = (uid:any) => {
     const [remaining,setRemaining] = useState<number>(0);
     const [usageDaily , setUsageDaily] = useState<any>(0);
     const [flaggedDaily , setFlaggedDaily] = useState<any>(0);
+    const [overview,setOverview] = useState<any>({});
     
 
     useEffect(() => {
@@ -39,6 +40,7 @@ const DashboardChart: React.FC<DashboardChartProps> = (uid:any) => {
                 setUsageDaily(responses.data.sortedData[0].requests);
                 console.log(usageDaily);
                 setFlaggedDaily(responses.data.sortedData[0].flagged || 0);
+                setOverview(responses.data.sortedData);
             } catch (error) {
                 console.error('Failed to fetch analytics data', error);
             }
@@ -102,7 +104,7 @@ const DashboardChart: React.FC<DashboardChartProps> = (uid:any) => {
                         <Flex className="mt-4">
                             <Text className="truncate">{Number(flaggedDaily/(100-remaining)*100).toFixed(2)}%</Text>
                         </Flex>
-                        <ProgressBar value={flaggedDaily} className="mt-2" color='red' /> 
+                        <ProgressBar value={Number(flaggedDaily/(100-remaining)*100)} className="mt-2" color='red' /> 
                         </Card>
                 </div>
             </Grid>
@@ -110,7 +112,7 @@ const DashboardChart: React.FC<DashboardChartProps> = (uid:any) => {
             <div className="mt-6">
                 <Card>
                     <div className="h-80">
-                        <Bar />
+                        <Bar overview={overview}/>
                     </div>
                 </Card>
             </div>

@@ -3,26 +3,6 @@ import React from "react";
 
 const chartdata3 = [
   {
-    date: "Jan 23",
-    "2022": 45,
-    "2023": 78,
-  },
-  {
-    date: "Feb 23",
-    "2022": 52,
-    "2023": 71,
-  },
-  {
-    date: "Mar 23",
-    "2022": 48,
-    "2023": 80,
-  },
-  {
-    date: "Apr 23",
-    "2022": 61,
-    "2023": 65,
-  },
-  {
     date: "May 23",
     "2022": 55,
     "2023": 58,
@@ -64,17 +44,40 @@ const chartdata3 = [
   },
 ];
 
-export const Bar = () => {
-  const [value, setValue] = React.useState(null);
+
+const secondsToDate = (seconds:any) => {
+  return new Date(seconds * 1000);  // JavaScript Date constructor expects milliseconds
+};
+
+// Convert date to a readable string (e.g., "May 23")
+const formatDate = (date:any) => {
+  const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+  return `${monthNames[date.getMonth()]} ${date.getDate()}`;
+};
+
+
+export const Bar = ({overview}:any) => {
+  
+  const safeOverview = Array.isArray(overview) ? overview : [];
+
+  const readableOverview = [...safeOverview].reverse().map((item: any) => {
+    const dateObj = secondsToDate(item.day._seconds);
+    return {
+      ...item,
+      readableDate: formatDate(dateObj)
+    };
+  });
+  
+  console.log(readableOverview);
   return (
     <>
-        <Title>Closed Pull Requests</Title>
+        <Title>Overview Requests</Title>
         <BarChart
           className="mt-6"
-          data={chartdata3}
-          index="date"
-          categories={["2022", "2023"]}
-          colors={["neutral", "indigo"]}
+          data={readableOverview}
+          index="readableDate"
+          categories={["requests"]}
+          colors={["blue"]}
           yAxisWidth={30}
         />
     </>
