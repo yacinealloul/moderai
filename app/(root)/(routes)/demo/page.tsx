@@ -1,10 +1,13 @@
 "use client";
 import React, { useState } from 'react';
+import { currentUser } from '@clerk/nextjs';
 
-const Playground: React.FC = () => {
+
+const Playground: React.FC = async () => {
     const [content, setContent] = useState('');
     const [moderationContext, setModerationContext] = useState('');
     const [response, setResponse] = useState('');
+  
 
     const handleModerate = () => {
         console.log('Content to moderate:', content, 'with context:', moderationContext);

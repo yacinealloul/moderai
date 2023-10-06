@@ -1,5 +1,6 @@
 "use client";
-import React from 'react'
+import React,{useEffect,useState} from 'react'
+import axios from 'axios';
 import {
     Card,
     Table,
@@ -14,7 +15,7 @@ import {
   } from "@tremor/react";
 
 
-  const data = [
+{/*  const data = [
     {
       name: "Pas mal les bzez",
       timestamp: "1:53PM 14/09/2023",
@@ -38,29 +39,53 @@ import {
 
   ];
 
-const DashboardDetails = () => {
+*/}
+const DashboardDetails = (user:any) => {
+  const [data,setData] = useState([{}])
+
+  const secondToDate = (number:any) => {
+    console.log(number);
+    const a = new Date((number?.day?._seconds*1000 + number?.day?._nanoseconds * 1000) || 0)
+    return a.toUTCString();
+  }
+
+  useEffect(() => {
+    const fetchData = async () => {
+        try {
+
+            const responses = await axios.post('api/inference/',{userId:user['uid']['user']})
+            console.log(responses.data);
+            setData(responses.data.sortedData);
+        } catch (error) {
+            console.error('Failed to fetch analytics data', error);
+        }
+    };
+
+    fetchData();
+}, []);
   return (
     <div>
     <Card>
-    <Title>Detailled request for today</Title>
+    <Title>Details of your requests</Title>
     <Table className="mt-5">
       <TableHead>
         <TableRow>
-          <TableHeaderCell>Prompt</TableHeaderCell>
-          <TableHeaderCell>Time</TableHeaderCell>
-          <TableHeaderCell>Flagged</TableHeaderCell>
+          <TableHeaderCell>Day</TableHeaderCell>
+          <TableHeaderCell>Number of requests</TableHeaderCell>
+          <TableHeaderCell>Number of flags</TableHeaderCell>
 
         </TableRow>
       </TableHead>
       <TableBody>
-        {data.map((item) => (
-          <TableRow key={item.name}>
-            <TableCell>{item.name}</TableCell>
+        {data.map((item:any) => (
+          
+          <TableRow key={item?.id}>
+            <TableCell>{secondToDate(item)} </TableCell>
             <TableCell>
-              <Text>{item.timestamp}</Text>
+              <Text>{item?.requests}</Text>
             </TableCell>
             <TableCell>
-              <Text>{item.flagged}</Text>
+              <Text>{0}</Text>
             </TableCell>
             <TableCell>
     

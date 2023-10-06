@@ -1,99 +1,53 @@
-import React from 'react'
+import React from 'react';
 
-const PricingPanel = () => {
-  return (
-    <div>
-        <div className="min-h-screen flex justify-center items-center">
-  <div className="">
-    <div className="text-center font-semibold">
-      <h1 className="text-5xl">
-        <span className="text-blue-700 tracking-wide">Flexible </span>
-        <span>Plans</span>
-      </h1>
-      <p className="pt-6 text-xl text-gray-400 font-normal w-full px-8 md:w-full">
-        Choose a plan that works best for you and
-        <br /> your team.
-      </p>
-    </div>
-    <div className="pt-24 flex flex-row gap-1">
-      <div className="w-96 p-8 bg-white text-center rounded-3xl pr-16 shadow-xl">
-        <h1 className="text-black font-semibold text-2xl">Basic</h1>
-        <p className="pt-2 tracking-wide">
-          <span className="text-gray-400 align-top">$ </span>
-          <span className="text-3xl font-semibold">10</span>
-          <span className="text-gray-400 font-medium">/ user</span>
-        </p>
-        <hr className="mt-4 border-1" />
-        <div className="pt-8">
-          <p className="font-semibold text-gray-400 text-left">
-            <span className="material-icons align-middle">done</span>
-            <span className="pl-2">
-              Get started with <span className="text-black">messaging</span>
-            </span>
-          </p>
-          <p className="font-semibold text-gray-400 text-left pt-5">
-            <span className="material-icons align-middle">done</span>
-            <span className="pl-2">
-              Flexible <span className="text-black">team meetings</span>
-            </span>
-          </p>
-          <p className="font-semibold text-gray-400 text-left pt-5">
-            <span className="material-icons align-middle">done</span>
-            <span className="pl-2">
-              <span className="text-black">5 TB</span> cloud storage
-            </span>
-          </p>
-          <a href="#" className="">
-            <p className="w-full py-4 bg-blue-600 mt-8 rounded-xl text-white">
-              <span className="font-medium">Choose Plan</span>
-              <span className="pl-2 material-icons align-middle text-sm">
-                east
-              </span>
-            </p>
-          </a>
+const PricingPanel: React.FC = () => {
+    return (
+        <div className="p-8 max-w-4xl mx-auto text-gray-700">
+            {/* Title */}
+            <div className="text-center text-3xl font-semibold mb-8">Choose Your Plan</div>
+
+            {/* Plans */}
+            <div className="grid grid-cols-3 gap-8">
+                {/* Free Plan */}
+                <div className="flex flex-col border rounded-lg p-6 space-y-4 h-full">
+                    <div className="text-center text-2xl font-bold">Free</div>
+                    <div className="text-center text-lg">100 requests per month</div>
+                    <ul className="list-disc pl-6 space-y-2 flex-grow">
+                        <li>Basic API Access</li>
+                        <li>Email Support</li>
+                        <li className="line-through text-gray-400">Priority Email Support</li>
+                        <li className="line-through text-gray-400">Access to SDKs and Tools</li>
+                    </ul>
+                    <button className="mx-auto px-6 py-2 bg-gray-100 hover:bg-gray-200 text-black rounded-full transition">Get Started</button>
+                </div>
+
+                {/* Developer Plan */}
+                <div className="flex flex-col border rounded-lg p-6 space-y-4 bg-gray-50 h-full">
+                    <div className="text-center text-2xl font-bold">Developer</div>
+                    <div className="text-center text-lg">20,000 requests per month</div>
+                    <ul className="list-disc pl-6 space-y-2 flex-grow">
+                        <li>Enhanced API Access</li>
+                        <li>Priority Email Support</li>
+                        <li>Access to SDKs and Tools</li>
+                        <li className="line-through text-gray-400">Dedicated Resources</li>
+                    </ul>
+                    <button className="mx-auto px-6 py-2 bg-yellow-400 hover:bg-yellow-500 text-white rounded-full transition">Buy Now</button>
+                </div>
+
+                {/* Professional Plan */}
+                <div className="flex flex-col border rounded-lg p-6 space-y-4 bg-gray-100 h-full">
+                    <div className="text-center text-2xl font-bold">Professional</div>
+                    <div className="text-center text-lg">200,000 requests per month</div>
+                    <ul className="list-disc pl-6 space-y-2 flex-grow">
+                        <li>Premium API Access</li>
+                        <li>24/7 Support</li>
+                        <li>Dedicated Resources</li>
+                    </ul>
+                    <button className="mx-auto px-6 py-2 bg-yellow-600 hover:bg-yellow-700 text-white rounded-full transition">Buy Now</button>
+                </div>
+            </div>
         </div>
-      </div>
-  
-      <div className="w-96 p-8 bg-white text-center rounded-3xl pl-16 shadow-xl">
-        <h1 className="text-black font-semibold text-2xl">Enterprise</h1>
-        <p className="pt-2 tracking-wide">
-          <span className="text-gray-400 align-top">$ </span>
-          <span className="text-3xl font-semibold">35</span>
-          <span className="text-gray-400 font-medium">/ user</span>
-        </p>
-        <hr className="mt-4 border-1" />
-        <div className="pt-8">
-          <p className="font-semibold text-gray-400 text-left">
-            <span className="material-icons align-middle">done</span>
-            <span className="pl-2">
-              All features in <span className="text-black">Startup</span>
-            </span>
-          </p>
-          <p className="font-semibold text-gray-400 text-left pt-5">
-            <span className="material-icons align-middle">done</span>
-            <span className="pl-2">
-              Growth <span className="text-black">oriented</span>
-            </span>
-          </p>
-          <p className="font-semibold text-gray-400 text-left pt-5">
-            <span className="material-icons align-middle">done</span>
-            <span className="pl-2">
-              <span className="text-black">Unlimited</span> cloud storage
-            </span>
-          </p>
-          <a href="#" className="">
-            <p className="w-full py-4 bg-blue-600 mt-8 rounded-xl text-white">
-              <span className="font-medium">Choose Plan</span>
-        
-            </p>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-    </div>
-  )
+    );
 }
 
 export default PricingPanel;

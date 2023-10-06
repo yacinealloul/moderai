@@ -23,9 +23,11 @@ import { currentUser } from '@clerk/nextjs';
 const Dashboard: React.FC = async () => {  
 
   const user = await currentUser();
+  //console.log(user);
   // localStorage.setItem('email',String(user?.emailAddresses));
   // localStorage.setItem('name',String(user?.firstName));
   // localStorage.setItem('prenom',String(user?.lastName));
+  // TO DO mettre une logique pour sortir
 
   return (
           <>
@@ -33,7 +35,7 @@ const Dashboard: React.FC = async () => {
                 <div className='extra-bold'>
                   <Metric>Hello {user?.firstName}✨</Metric>
                   </div>
-                  <DashboardPanel />
+                  <DashboardPanel user={user?.id} />
               </main>
 
           </>

@@ -9,11 +9,11 @@ import { useAuth } from '@clerk/nextjs'
 const inter = Inter({ subsets: ['greek'] })
 
 export const metadata: Metadata = {
-  title: 'Moder.ai',
+  title: 'Flagged.ai',
   description: 'Streamline your workflow with advanced text processing and moderation.',
   keywords: ["Text Moderation", "Content Filtering", "Moderation Automation", "AI for Moderation", "Online Moderation Tool", "Content Safety", "Real-time Moderation", "Comment Management", "Inappropriate Content Detection", "User-generated Content Control"],
   openGraph:{
-      title: 'Moder.ai',
+      title: 'Flagged.ai',
       description: 'Streamline your workflow with advanced text processing and moderation.',
       images:['https://media.discordapp.net/attachments/1005203757275029606/1149279122682544178/0gvHYoi.png'],
 
