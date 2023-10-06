@@ -85,7 +85,7 @@ const DashboardDetails = (user:any) => {
               <Text>{item?.requests}</Text>
             </TableCell>
             <TableCell>
-              <Text>{0}</Text>
+              <Text>{item?.flagged||0}</Text>
             </TableCell>
             <TableCell>
     

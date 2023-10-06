@@ -1,44 +1,82 @@
-import { Card, Metric, Text, Divider, AreaChart } from "@tremor/react";
+import { Card, Title, BarChart } from "@tremor/react";
+import React from "react";
 
-const data = [
+const chartdata3 = [
   {
-    Month: "Jan 21",
-    "Gross Volume": 2890,
-    "Successful Payments": 2400,
-    Customers: 4938,
+    date: "Jan 23",
+    "2022": 45,
+    "2023": 78,
   },
   {
-    Month: "Feb 21",
-    "Gross Volume": 1890,
-    "Successful Payments": 1398,
-    Customers: 2938,
+    date: "Feb 23",
+    "2022": 52,
+    "2023": 71,
   },
-  // ...
   {
-    Month: "Jan 22",
-    "Gross Volume": 3890,
-    "Successful Payments": 2980,
-    Customers: 2645,
+    date: "Mar 23",
+    "2022": 48,
+    "2023": 80,
+  },
+  {
+    date: "Apr 23",
+    "2022": 61,
+    "2023": 65,
+  },
+  {
+    date: "May 23",
+    "2022": 55,
+    "2023": 58,
+  },
+  {
+    date: "Jun 23",
+    "2022": 67,
+    "2023": 62,
+  },
+  {
+    date: "Jul 23",
+    "2022": 60,
+    "2023": 54,
+  },
+  {
+    date: "Aug 23",
+    "2022": 72,
+    "2023": 49,
+  },
+  {
+    date: "Sep 23",
+    "2022": 65,
+    "2023": 52,
+  },
+  {
+    date: "Oct 23",
+    "2022": 68,
+    "2023": null,
+  },
+  {
+    date: "Nov 23",
+    "2022": 74,
+    "2023": null,
+  },
+  {
+    date: "Dec 23",
+    "2022": 71,
+    "2023": null,
   },
 ];
 
-const valueFormatter = (number: number) => `$ ${Intl.NumberFormat("us").format(number).toString()}`;
-
-export function Bar() {
+export const Bar = () => {
+  const [value, setValue] = React.useState(null);
   return (
-    <Card className="mx-auto">
-      <Text>Overview usage (weekly)</Text>
-      <Metric>120 639</Metric>
-      <AreaChart
-        className="mt-8 h-44"
-        data={data}
-        categories={["Gross Volume"]}
-        index="Month"
-        colors={["indigo"]}
-        valueFormatter={valueFormatter}
-        showYAxis={false}
-        showLegend={false}
-      />
-    </Card>
+    <>
+        <Title>Closed Pull Requests</Title>
+        <BarChart
+          className="mt-6"
+          data={chartdata3}
+          index="date"
+          categories={["2022", "2023"]}
+          colors={["neutral", "indigo"]}
+          yAxisWidth={30}
+        />
+    </>
   );
-}
+};

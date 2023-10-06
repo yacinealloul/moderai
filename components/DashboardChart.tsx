@@ -23,7 +23,8 @@ interface DashboardChartProps {
 const DashboardChart: React.FC<DashboardChartProps> = (uid:any) => {
     const [data, setData] = useState<any>(null);
     const [remaining,setRemaining] = useState<number>(0);
-    const [usageDaily , setUsageDaily] = useState<number>(0);
+    const [usageDaily , setUsageDaily] = useState<any>(0);
+    const [flaggedDaily , setFlaggedDaily] = useState<any>(0);
     
 
     useEffect(() => {
@@ -34,7 +35,10 @@ const DashboardChart: React.FC<DashboardChartProps> = (uid:any) => {
                 const responses = await axios.post('api/inference/',{userId:uid['uid']['user']})
                 console.log(responses.data);
                 setRemaining(responses.data.docGet.remainingRequests);
-                setUsageDaily(responses.data['0'].requests);
+                
+                setUsageDaily(responses.data.sortedData[0].requests);
+                console.log(usageDaily);
+                setFlaggedDaily(responses.data.sortedData[0].flagged || 0);
             } catch (error) {
                 console.error('Failed to fetch analytics data', error);
             }
@@ -57,31 +61,32 @@ const DashboardChart: React.FC<DashboardChartProps> = (uid:any) => {
                                 <Text>Monthly usage</Text>
                                 <Metric>{100-remaining}</Metric>
                             </div>
-                            <BadgeDelta deltaType="moderateDecrease">13.2%</BadgeDelta>
+                            {/*<BadgeDelta deltaType="moderateDecrease">13.2%</BadgeDelta> */}
                         </Flex>
                         <Flex className="mt-4">
-                            <Text className="truncate">{(Number(1-Number((remaining)/100))*100).toFixed(3)}%</Text>
-                            <Text>{200000}</Text>
+                            <Text className="truncate">{(Number(1-Number((remaining)/100))*100).toFixed(2)}%</Text>
+                            <Text>{100}</Text>
                         </Flex>
-                        <ProgressBar value={Number(remaining)/200000} className="mt-2" />
+                        <ProgressBar value={100-remaining} className="mt-2" />
                     </Card>
                 </div>
 
                 <div className="h-28 border-3">
-                    <Card className="max-w-lg mx-auto" color="white">
+                    <Card className="contmax-w-lg mx-auto" color="white">
                         <Flex alignItems="start">
                             <div>
                                 <Text>Number of request today</Text>
                                 <Metric>{usageDaily}</Metric>
                             </div>
-                            <BadgeDelta deltaType="moderateIncrease">13.2%</BadgeDelta>
-                        </Flex>
+                            {/*<BadgeDelta deltaType="moderateDecrease">13.2%</BadgeDelta> */}
+                            </Flex>
                         <Flex className="mt-4">
-                            <Text className="truncate">68% ($ 149,940)</Text>
-                            <Text>$ 220,500</Text>
+                            <Text className="truncate invisible">3</Text>
+                            <Text className='invisible'>S</Text>
+                            
                         </Flex>
-                        <ProgressBar value={15.9} className="mt-2" />
-                    </Card>
+                        <ProgressBar value={0} className="mt-2 invisible" /> 
+                        </Card>
                 </div>
 
                 {/* Flagged Content Card */}
@@ -90,16 +95,15 @@ const DashboardChart: React.FC<DashboardChartProps> = (uid:any) => {
                         <Flex alignItems="start">
                             <div>
                                 <Text>Flagged content</Text>
-                                <Metric>129</Metric>
+                                <Metric>{flaggedDaily}</Metric>
                             </div>
-                            <BadgeDelta deltaType="moderateIncrease">3.2%</BadgeDelta>
-                        </Flex>
+                            {/*<BadgeDelta deltaType="moderateDecrease">13.2%</BadgeDelta> */}
+                            </Flex>
                         <Flex className="mt-4">
-                            <Text className="truncate">68% ($ 149,940)</Text>
-                            <Text>$ 220,500</Text>
+                            <Text className="truncate">{Number(flaggedDaily/(100-remaining)*100).toFixed(2)}%</Text>
                         </Flex>
-                        <ProgressBar value={15.9} className="mt-2" />
-                    </Card>
+                        <ProgressBar value={flaggedDaily} className="mt-2" color='red' /> 
+                        </Card>
                 </div>
             </Grid>
             <br />
