@@ -37,6 +37,26 @@ export default function RootLayout({
   return (
     <ClerkProvider>
     <html lang="en">
+      <head>
+        
+  <title>Flagged.ai | Seamless API Moderation</title>
+  <meta name="description" content="Integrate Flagged.ai for efficient content moderation solutions in your application."/>
+
+  <meta property="og:url" content="https://www.flagged.ai/"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:title" content="Flagged.ai | Seamless API Moderation"/>
+  <meta property="og:description" content="Integrate Flagged.ai for efficient content moderation solutions in your application."/>
+  <meta property="og:image" content="https://media.discordapp.net/attachments/1005203757275029606/1159879801658679437/image.png?ex=6532a13e&is=65202c3e&hm=aae1ed0e255daa17df58c946f4876470d67f58474bae808e017414a7e891576c&=&"/>
+
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta property="twitter:domain" content="flagged.ai"/>
+  <meta property="twitter:url" content="https://www.flagged.ai/"/>
+  <meta name="twitter:title" content="Flagged.ai | Seamless API Moderation"/>
+  <meta name="twitter:description" content="Integrate Flagged.ai for efficient content moderation solutions in your application."/>
+  <meta name="twitter:image" content="https://media.discordapp.net/attachments/1005203757275029606/1159879801658679437/image.png?ex=6532a13e&is=65202c3e&hm=aae1ed0e255daa17df58c946f4876470d67f58474bae808e017414a7e891576c&=&"/>
+
+        
+      </head>
       <body className={inter.className}>
       <Navbar/>
         {children}
