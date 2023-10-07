@@ -49,9 +49,10 @@ axios.post(url, data, { headers: headers })
     console.error('Error:', error);
   });
     `
-  },
-  // Ajoutez d'autres endpoints ici
+  // Add other endpoints here
+}
 ];
+
 
 const Documentation: React.FC = () => {
   const [selectedEndpoint, setSelectedEndpoint] = useState<Endpoint | null>(endpoints[0]);
