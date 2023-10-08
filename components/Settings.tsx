@@ -16,18 +16,18 @@ const Settings = (uid:any) => {
         <div className="p-6">
             {/* API Key Management */}
             <div className="bg-white rounded-lg shadow-md p-6 mb-6">
-                <h2 className="text-2xl font-semibold mb-4">API Key Management</h2>
+                <h2 className="text-2xl font-semibold mb-4">API key management</h2>
                 <p>Your current API key: <span className="font-mono">sk-{apiKey}</span></p>
                 <button onClick={regenerateApiKey} className="mt-4 bg-red-500 text-white px-4 py-2 rounded-md">
-                    Show your API Key
+                    Show my API key
                 </button>
             </div>
 
             {/* Billing Information */}
             <div className="bg-white rounded-lg shadow-md p-6 mb-6">
-                <h2 className="text-2xl font-semibold mb-4">Billing Information</h2>
-                <p><strong>Subscription Plan:</strong> Premium</p>
-                <p><strong>Next Billing Date:</strong> October 20, 2023</p>
+                <h2 className="text-2xl font-semibold mb-4">Billing information</h2>
+                <p><strong>Plan:</strong> Premium</p>
+                <p><strong>Next billing date:</strong> October 20, 2023</p>
             </div>
 
         </div>

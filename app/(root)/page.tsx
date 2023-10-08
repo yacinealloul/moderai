@@ -51,13 +51,13 @@ export default function Home() {
           </p>
         </div>
         <h1 className='max-w-4xl text-5xl font-bold md:text-6xl lg:text-7xl'>
-          Moderate your{' '}
+          Analyze any{' '}
           <span className='text-blue-600'>message</span>{' '}
-          in seconds.
+          instantly.
         </h1>
         <p className='mt-5 max-w-prose text-zinc-700 sm:text-lg'>
-          Flagged.ai allows you to have a view with any
-          type of message. Simply send a request to our service and get an answer.
+          Our service provides you with next-level insights for any
+          type of text content, including moderation data and sentiment analysis.
         </p>
 
         <Link
@@ -122,11 +122,10 @@ export default function Home() {
         <div className='mb-12 px-6 lg:px-8'>
           <div className='mx-auto max-w-2xl sm:text-center'>
             <h2 className='mt-2 font-bold text-4xl text-gray-900 sm:text-5xl'>
-              Automatize your moderation now
+              Automate your moderation workflow now
             </h2>
             <p className='mt-4 text-lg text-gray-600'>
-              Analyze words has never been
-              easier than with Flagged.ai.
+              Bring meaning to words with flagged.ai
             </p>
           </div>
         </div>
@@ -142,7 +141,7 @@ export default function Home() {
                 Sign up for an account
               </span>
               <span className='mt-2 text-zinc-700'>
-                Either starting out with a free plan or
+                Either start out with a free plan or
                 choose our{' '}
                 <Link
                   href='/pricing'
@@ -159,10 +158,10 @@ export default function Home() {
                 Step 2
               </span>
               <span className='text-xl font-semibold'>
-                Choose your context
+                Customize the analysis
               </span>
               <span className='mt-2 text-zinc-700'>
-                We&apos;ll process to give you the most accurate analyze for your message.
+                To make results even more relevant, specify filters to detect.
               </span>
             </div>
           </li>
@@ -172,11 +171,10 @@ export default function Home() {
                 Step 3
               </span>
               <span className='text-xl font-semibold'>
-                Send your first request
+                Send the request
               </span>
               <span className='mt-2 text-zinc-700'>
-                It&apos;s that simple. Try out Flagged.ai today -
-                it really takes less than a second.
+                Specify any text; our system returns detailed insights in less than a second.
               </span>
             </div>
           </li>

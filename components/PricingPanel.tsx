@@ -26,8 +26,7 @@ const PricingPanel: React.FC = () => {
                     <div className="text-center text-2xl font-bold">Developer</div>
                     <div className="text-center text-lg">20,000 requests per month</div>
                     <ul className="list-disc pl-6 space-y-2 flex-grow">
-                        <li>Enhanced API Access</li>
-                        <li>Priority Email Support</li>
+                        <li>Priority Support</li>
                         <li>Access to SDKs and Tools</li>
                         <li className="line-through text-gray-400">Dedicated Resources</li>
                     </ul>
@@ -39,8 +38,8 @@ const PricingPanel: React.FC = () => {
                     <div className="text-center text-2xl font-bold">Professional</div>
                     <div className="text-center text-lg">200,000 requests per month</div>
                     <ul className="list-disc pl-6 space-y-2 flex-grow">
-                        <li>Premium API Access</li>
-                        <li>24/7 Support</li>
+                        <li>Guaranteed Uptime (SLA)</li>
+                        <li>Premium Support</li>
                         <li>Dedicated Resources</li>
                     </ul>
                     <button className="mx-auto px-6 py-2 bg-yellow-600 hover:bg-yellow-700 text-white rounded-full transition">Buy Now</button>

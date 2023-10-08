@@ -21,7 +21,7 @@ const Playground: React.FC = () => {
     {/* Header */}
     <div className="text-center mb-12">
         <h2 className="text-4xl font-extrabold mb-2 text-gray-700">Playground</h2>
-        <p className="text-lg text-gray-600">Test your moderation API in real-time.</p>
+        <p className="text-lg text-gray-600">Try our service in real-time</p>
     </div>
 
     <div className="w-full max-w-4xl p-8 space-y-8 bg-white shadow-md rounded-lg">

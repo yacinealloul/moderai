@@ -38,7 +38,7 @@ export default function Billing() {
             <TableRow>
               <TableHeaderCell>Date</TableHeaderCell>
               <TableHeaderCell>Plan</TableHeaderCell>
-              <TableHeaderCell>Total request</TableHeaderCell>
+              <TableHeaderCell>Total requests</TableHeaderCell>
 
               <TableHeaderCell className="text-right">Amount ($)</TableHeaderCell>
               <TableHeaderCell className="text-right">Status</TableHeaderCell>

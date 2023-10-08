@@ -77,7 +77,7 @@ const DashboardChart: React.FC<DashboardChartProps> = (uid:any) => {
                     <Card className="contmax-w-lg mx-auto" color="white">
                         <Flex alignItems="start">
                             <div>
-                                <Text>Number of request today</Text>
+                                <Text>Requests today</Text>
                                 <Metric>{usageDaily}</Metric>
                             </div>
                             {/*<BadgeDelta deltaType="moderateDecrease">13.2%</BadgeDelta> */}
@@ -96,7 +96,7 @@ const DashboardChart: React.FC<DashboardChartProps> = (uid:any) => {
                     <Card className="max-w-lg mx-auto" color="white">
                         <Flex alignItems="start">
                             <div>
-                                <Text>Flagged content</Text>
+                                <Text>Flagged today</Text>
                                 <Metric>{flaggedDaily}</Metric>
                             </div>
                             {/*<BadgeDelta deltaType="moderateDecrease">13.2%</BadgeDelta> */}

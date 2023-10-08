@@ -71,7 +71,7 @@ export const Bar = ({overview}:any) => {
   console.log(readableOverview);
   return (
     <>
-        <Title>Overview Requests</Title>
+        <Title>Usage overview</Title>
         <BarChart
           className="mt-6"
           data={readableOverview}
