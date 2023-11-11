@@ -1,17 +1,16 @@
 // pages/pricing.tsx
+"use client";
 import React from 'react';
 import PricingPanel from '@/components/PricingPanel';
+import { useAuth } from '@clerk/nextjs';
 
 
-
-const Pricing: React.FC = () => {
+const Pricing =  () => {  
+    const {userId} = useAuth();
+    const logged = userId ? (true) : (false);
+   
     return (
-<>
-<PricingPanel />
-</>
-
-        
-        
+        <PricingPanel logged={logged}></PricingPanel>
     );
 }
 

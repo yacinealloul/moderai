@@ -1,37 +1,36 @@
 import React, { useState } from 'react';
-import { redirect } from 'next/navigation';
 import { UserButton } from '@clerk/nextjs';
-interface DashboardChartProps {
-    uid: string; // or number, depending on what `user?.userId` is
-  }
+
 const Settings = (uid:any) => {
     const [apiKey, setApiKey] = useState('XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'); // Example longer API key
-
-    const regenerateApiKey = () => {
+    
+    const show = () => {
         // Logic to regenerate API key. This is a placeholder.
-        setApiKey(uid['uid']['user']);
+        setApiKey(uid['uid']['user'])
     };
 
     return (
         <div className="p-6">
             {/* API Key Management */}
-            <div className="bg-white rounded-lg shadow-md p-6 mb-6">
-                <h2 className="text-2xl font-semibold mb-4">API Key Management</h2>
-                <p>Your current API key: <span className="font-mono">sk-{apiKey}</span></p>
-                <button onClick={regenerateApiKey} className="mt-4 bg-red-500 text-white px-4 py-2 rounded-md">
-                    Show your API Key
+            <div className="bg-white rounded-lg shadow-md p-6 mb-8">
+                <h2 className="text-xl md:text-2xl font-semibold mb-6">API Key Management</h2>
+                <p className="mb-4">Your current API key: 
+                    <span className="font-mono bg-gray-100 p-2 rounded-lg inline-block ml-2">sk-{apiKey}</span>
+                </p>
+                <button onClick={show} className="mt-4 bg-blue-600 hover:bg-blue-700 text-white font-bold px-6 py-3 rounded-lg transition duration-300 ease-in-out shadow-lg">
+                    Regenerate API Key
                 </button>
             </div>
 
-            {/* Billing Information */}
-            <div className="bg-white rounded-lg shadow-md p-6 mb-6">
-                <h2 className="text-2xl font-semibold mb-4">Billing Information</h2>
-                <p><strong>Subscription Plan:</strong> Premium</p>
-                <p><strong>Next Billing Date:</strong> October 20, 2023</p>
+            <div className="bg-white rounded-lg shadow-md p-6 mb-8">
+                <h2 className="text-xl md:text-2xl font-semibold mb-6">Billing Information</h2>
+                <div className="space-y-4">
+                    <p><strong>Subscription Plan:</strong> <span className="text-gray-600">Premium</span></p>
+                    <p><strong>Next Billing Date:</strong> <span className="text-gray-600">October 20, 2023</span></p>
+                </div>
             </div>
-
         </div>
-    )
-}
+    );
+};
 
 export default Settings;

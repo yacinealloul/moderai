@@ -42,9 +42,9 @@ export async function GET() {
             currency: "USD",
             product_data: {
               name: "Flagged.ai",
-              description: "TO DO"
+              description: "Professional plan: 200.000 requests per month"
             },
-            unit_amount: 999000,
+            unit_amount: 17999,
             recurring: {
               interval: "month"
             }
@@ -54,7 +54,7 @@ export async function GET() {
       ],
       metadata: {
         userId,
-        tier : 1
+        tier : 2
       },
     })
 

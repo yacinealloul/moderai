@@ -21,14 +21,16 @@ import {
 
 const DashboardPanel = (user:any) => {
   return (
-    <div className='bg-transparent'>
-                     <TabGroup className="mt-6">
-                    <TabList className='gap-x-10'>
-                      <Tab>Overview </Tab>
-                      <Tab>Details</Tab>
-                      <Tab>Billing</Tab>
-                      <Tab className='right-3'>Settings</Tab>
-                    </TabList>
+    <div >
+                     <TabGroup className="mt-7">
+                     <TabList className='flex justify-center text-lg space-x-2 md:space-x-5'>
+  <Tab className='px-4 py-2 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50 rounded-xl'>Overview</Tab>
+  <Tab className='px-4 py-2 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50 rounded-lg'>Details</Tab>
+  <Tab className='px-4 py-2 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50 rounded-lg'>Settings</Tab>
+</TabList>
+
+<br /> 
+
                     <TabPanels className='bg-transparent'>
                       <TabPanel>
 <DashboardChart uid={user} />
@@ -38,9 +40,7 @@ const DashboardPanel = (user:any) => {
                       <TabPanel>
                         <DashboardDetails uid={user}/>
                       </TabPanel>
-                      <TabPanel>
-                        <Billing />
-                      </TabPanel>
+                   
 
                       <TabPanel>
                         <Settings uid={user} />

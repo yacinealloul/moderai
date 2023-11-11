@@ -50,7 +50,7 @@ const DashboardChart: React.FC<DashboardChartProps> = (uid:any) => {
     }, []);
 
     if (!data) {
-        return <div>Loading... {uid['uid']['user']}</div>;
+        return <div>Loading... {/*uid['uid']['user']*/}</div>;
     }
 
     return (
