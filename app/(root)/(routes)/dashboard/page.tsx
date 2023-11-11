@@ -33,7 +33,8 @@ const Dashboard: React.FC = async () => {
           <>
               <main className="p-10">
                 <div className='extra-bold'>
-                  <Metric>Hello {user?.firstName}✨</Metric>
+                  {//<Metric>Hello {user?.firstName}✨</Metric>
+}
                   </div>
                   <DashboardPanel user={user?.id} />
               </main>

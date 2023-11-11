@@ -68,7 +68,7 @@ export const Bar = ({overview}:any) => {
     };
   });
   
-  console.log(readableOverview);
+  //console.log(readableOverview);
   return (
     <>
         <Title>Overview Requests</Title>

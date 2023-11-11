@@ -22,13 +22,7 @@ const Settings = (uid:any) => {
                 </button>
             </div>
 
-            <div className="bg-white rounded-lg shadow-md p-6 mb-8">
-                <h2 className="text-xl md:text-2xl font-semibold mb-6">Billing Information</h2>
-                <div className="space-y-4">
-                    <p><strong>Subscription Plan:</strong> <span className="text-gray-600">Premium</span></p>
-                    <p><strong>Next Billing Date:</strong> <span className="text-gray-600">October 20, 2023</span></p>
-                </div>
-            </div>
+
         </div>
     );
 };

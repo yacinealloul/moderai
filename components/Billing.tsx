@@ -46,16 +46,14 @@ export default function Billing() {
             </TableRow>
           </TableHead>
           <TableBody>
-            {transactions.map((transaction) => (
-              <TableRow key={transaction.date}>
+            {transactions.map((transaction,id) => (
+              <TableRow key={id}>
                 <TableCell>{transaction.date}</TableCell>
                 <TableCell>{transaction.plan}</TableCell>
                 <TableCell>{transaction.totalRequest}</TableCell>
 
                 <TableCell className="text-right">${transaction.amount}</TableCell>
                 <TableCell className="text-right">{transaction.success && ("✅") || !transaction.success && ("❌")  }</TableCell>
-
-
               </TableRow>
             ))}
           </TableBody>

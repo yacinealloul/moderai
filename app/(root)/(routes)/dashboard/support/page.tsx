@@ -16,16 +16,10 @@ const Support: React.FC = () => {
     });
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Envoyez les données du formulaire à votre backend ici
     console.log(formData);
-    setFormData({
-      name: '',
-      email: '',
-      subject: '',
-      message: ''
-    });
+    
   }
 
   return (

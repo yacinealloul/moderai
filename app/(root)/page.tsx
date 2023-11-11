@@ -40,7 +40,7 @@ export default function Home() {
     <div className='mb-12 mt-28 sm:mt-40 flex flex-col items-center justify-center text-center'>
         <div className='mx-auto mb-4 flex max-w-fit items-center justify-center space-x-2 overflow-hidden rounded-full border border-gray-200 bg-white px-7 py-2 shadow-md backdrop-blur transition-all hover:border-gray-300 hover:bg-white/50'>
           <p className='text-sm font-semibold text-gray-700'>
-            Flagged.ai is now public!
+            flagged.ai is now public!
           </p>
         </div>
         <h1 className='max-w-4xl text-5xl font-bold md:text-6xl lg:text-7xl'>
@@ -49,7 +49,7 @@ export default function Home() {
           in seconds.
         </h1>
         <p className='mt-5 max-w-prose text-zinc-700 sm:text-lg'>
-          Flagged.ai allows you to have a view with any
+          flagged.ai allows you to have a view with any
           type of message. Simply send a request to our service and get an answer.
         </p>
 
@@ -136,33 +136,21 @@ export default function Home() {
               </span>
               <span className='mt-2 text-zinc-700'>
                 Either starting out with a free plan or
-                choose our{' '}
+                choose one of our{' '}
                 <Link
                   href='/pricing'
                   className='text-blue-700 underline underline-offset-2'>
-                  pro plan
+                  plan
                 </Link>
                 .
               </span>
             </div>
           </li>
+
           <li className='md:flex-1'>
             <div className='flex flex-col space-y-2 border-l-4 border-zinc-300 py-2 pl-4 md:border-l-0 md:border-t-2 md:pb-0 md:pl-0 md:pt-4'>
               <span className='text-sm font-medium text-blue-600'>
                 Step 2
-              </span>
-              <span className='text-xl font-semibold'>
-                Choose your context
-              </span>
-              <span className='mt-2 text-zinc-700'>
-                We&apos;ll process to give you the most accurate analyze for your message.
-              </span>
-            </div>
-          </li>
-          <li className='md:flex-1'>
-            <div className='flex flex-col space-y-2 border-l-4 border-zinc-300 py-2 pl-4 md:border-l-0 md:border-t-2 md:pb-0 md:pl-0 md:pt-4'>
-              <span className='text-sm font-medium text-blue-600'>
-                Step 3
               </span>
               <span className='text-xl font-semibold'>
                 Send your first request
@@ -179,7 +167,7 @@ export default function Home() {
           <div className='mt-16 flow-root sm:mt-24'>
             <div className='-m-2 rounded-xl bg-gray-900/5 p-2 ring-1 ring-inset ring-gray-900/10 lg:-m-4 lg:rounded-2xl lg:p-4'>
               <Image
-                src='/file-upload-preview.jpg'
+                src='/image2.png'
                 alt='uploading preview'
                 width={1419}
                 height={732}
@@ -189,6 +177,49 @@ export default function Home() {
             </div>
           </div>
         </div>
+        <br />
+        <section className="bg-zinc-100 py-8 px-4 rounded-xl">
+        <div className="container mx-auto rounded-xl">
+            <h2 className="text-2xl font-semibold text-center text-zinc-800 mb-6">What Our Users Say</h2>
+            <div className="flex flex-col md:flex-row md:space-x-6">
+                <div className="md:flex-1 mb-6 md:mb-0">
+                    <div className="p-4 border border-zinc-300 rounded-lg">
+                        <p className="text-zinc-700 italic">"Using flagged.ai to moderate my chat has helped a lot to manage my community. The accuracy and efficiency are unmatched."</p>
+                        <div className="mt-4">
+                            <span className="font-medium text-zinc-800">Judith Doe</span>
+                            <span className="text-sm text-zinc-600"> - Streamer</span>
+                        </div>
+                    </div>
+                </div>
+                <div className="md:flex-1">
+                    <div className="p-4 border border-zinc-300 rounded-lg">
+                        <p className="text-zinc-700 italic">"I was skeptical at first, but flagged.ai proved to be a game-changer for my business. Highly recommend!"</p>
+                        <div className="mt-4">
+                            <span className="font-medium text-zinc-800">Harry Penguin</span>
+                            <span className="text-sm text-zinc-600"> - Indie Hacker</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+        <footer className='bg-current/10 py-6 mt-8'>
+        <div className='container mx-auto px-4'>
+            <div className='flex flex-col md:flex-row justify-between items-center'>
+                <div className='mb-4 md:mb-0'>
+                    <span className='text-xl font-semibold'>TrueLabs AI LLC</span>
+                </div>
+                <div className='flex space-x-4'>
+                    <a href='/about' className='text-blue-400 hover:text-blue-300'>About Us</a>
+                    <a href='/contact' className='text-blue-400 hover:text-blue-300'>Contact</a>
+                    <a href='/terms' className='text-blue-400 hover:text-blue-300'>Terms of Service</a>
+                    <a href='/privacy' className='text-blue-400 hover:text-blue-300'>Privacy Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
       </div>
     
     </div>

@@ -41,24 +41,29 @@ export async function POST(req: Request) {
     if (!session?.metadata?.userId) {
       return new NextResponse("User id is required", { status: 400 });
     }
-    db.collection('subscription').doc(session?.metadata?.userId).set({
-        'uid': session?.metadata?.userId,
-        'sid': subscription.customer as string,
-        'stripePriceId': subscription.items.data[0].price.id,
-    })
-    {/*
-    await prismadb.userSubscription.create({
-      data: {
-        userId: session?.metadata?.userId,
-        stripeSubscriptionId: subscription.id,
-        stripeCustomerId: subscription.customer as string,
-        stripePriceId: subscription.items.data[0].price.id,
-        stripeCurrentPeriodEnd: new Date(
-          subscription.current_period_end * 1000
-        ),
-      },
-    })
-    */}
+
+    if (!session?.metadata?.tier){
+      return new NextResponse('Tier is required',{status:400})
+    }
+    var id:number;
+    id = Number(session?.metadata?.tier)
+    var tier = ['project','business']
+    const docRef =  db.collection('subscription').doc(session?.metadata?.userId)
+    const docSnapshot = await docRef.get();
+    if (!docSnapshot.exists){
+      docRef.set({
+        'sid':session?.metadata?.userId,
+        'uid':session?.metadata?.userId,
+        'tier': tier[id-1]
+      })
+    }
+    else{
+      docRef.set({'tier':tier[id-1]},{merge:true})
+
+    }
+
+ 
+  
   }
 
   if (event.type === "invoice.payment_succeeded") {

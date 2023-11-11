@@ -25,6 +25,7 @@ const DashboardChart: React.FC<DashboardChartProps> = (uid:any) => {
     const [remaining,setRemaining] = useState<number>(0);
     const [usageDaily , setUsageDaily] = useState<any>(0);
     const [flaggedDaily , setFlaggedDaily] = useState<any>(0);
+    const [type,setType] = useState<string>('');
     const [overview,setOverview] = useState<any>({});
     
 
@@ -36,7 +37,7 @@ const DashboardChart: React.FC<DashboardChartProps> = (uid:any) => {
                 const responses = await axios.post('api/inference/',{userId:uid['uid']['user']})
                 console.log(responses.data);
                 setRemaining(responses.data.docGet.remainingRequests);
-                
+                setType(responses.data.docGet.tier);
                 setUsageDaily(responses.data.sortedData[0].requests);
                 console.log(usageDaily);
                 setFlaggedDaily(responses.data.sortedData[0].flagged || 0);
@@ -55,59 +56,45 @@ const DashboardChart: React.FC<DashboardChartProps> = (uid:any) => {
 
     return (
         <div>
-            <Grid numItemsMd={2} numItemsLg={3} className="gap-6 mt-6">
-                <div className="h-28 border-3">
-                    <Card className="max-w-lg mx-auto" color="white">
-                        <Flex alignItems="start">
-                            <div>
-                                <Text>Monthly usage</Text>
-                                <Metric>{100-remaining}</Metric>
-                            </div>
-                            {/*<BadgeDelta deltaType="moderateDecrease">13.2%</BadgeDelta> */}
-                        </Flex>
-                        <Flex className="mt-4">
-                            <Text className="truncate">{(Number(1-Number((remaining)/100))*100).toFixed(2)}%</Text>
-                            <Text>{100}</Text>
-                        </Flex>
-                        <ProgressBar value={100-remaining} className="mt-2" />
-                    </Card>
+<Grid numItemsMd={2} numItemsLg={3} className="gap-6 mt-6">
+    <div className="h-28">
+        <Card className="max-w-lg mx-auto bg-white">
+            <Flex alignItems="start" className="p-4">
+                <div>
+                    <Text className="font-semibold">Monthly Usage:</Text>
+                    <Metric className="text-lg">{remaining}</Metric>
                 </div>
+     
+            </Flex>
+        </Card>
+    </div>
 
-                <div className="h-28 border-3">
-                    <Card className="contmax-w-lg mx-auto" color="white">
-                        <Flex alignItems="start">
-                            <div>
-                                <Text>Number of request today</Text>
-                                <Metric>{usageDaily}</Metric>
-                            </div>
-                            {/*<BadgeDelta deltaType="moderateDecrease">13.2%</BadgeDelta> */}
-                            </Flex>
-                        <Flex className="mt-4">
-                            <Text className="truncate invisible">3</Text>
-                            <Text className='invisible'>S</Text>
-                            
-                        </Flex>
-                        <ProgressBar value={0} className="mt-2 invisible" /> 
-                        </Card>
+    <div className="h-28">
+        <Card className="max-w-lg mx-auto bg-white">
+            <Flex alignItems="start" className="p-4">
+                <div>
+                    <Text className="font-semibold">Requests Today:</Text>
+                    <Metric className="text-lg">{usageDaily}</Metric>
                 </div>
+            </Flex>
+        </Card>
+    </div>
 
-                {/* Flagged Content Card */}
-                <div className="h-28 border-3">
-                    <Card className="max-w-lg mx-auto" color="white">
-                        <Flex alignItems="start">
-                            <div>
-                                <Text>Flagged content</Text>
-                                <Metric>{flaggedDaily}</Metric>
-                            </div>
-                            {/*<BadgeDelta deltaType="moderateDecrease">13.2%</BadgeDelta> */}
-                            </Flex>
-                        <Flex className="mt-4">
-                            <Text className="truncate">{Number(flaggedDaily/(100-remaining)*100).toFixed(2)}%</Text>
-                        </Flex>
-                        <ProgressBar value={Number(flaggedDaily/(100-remaining)*100)} className="mt-2" color='red' /> 
-                        </Card>
+    <div className="h-28">
+        <Card className="max-w-lg mx-auto bg-white">
+            <Flex alignItems="start" className="p-4">
+                <div>
+                    <Text className="font-semibold">Flagged Content:</Text>
+                    <Metric className="text-lg">{flaggedDaily}</Metric>
                 </div>
-            </Grid>
+                <div className="mt-2">
+                    <Text className="text-sm">{Number(flaggedDaily / usageDaily * 100).toFixed(2)}%</Text>
+                </div>
+            </Flex>
+        </Card>
+    </div>
+</Grid>
+
             <br />
             <div className="mt-6">
                 <Card>

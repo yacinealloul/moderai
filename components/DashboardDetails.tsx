@@ -46,7 +46,7 @@ const DashboardDetails = (user:any) => {
   const secondToDate = (number:any) => {
     console.log(number);
     const a = new Date((number?.day?._seconds*1000 + number?.day?._nanoseconds * 1000) || 0)
-    return a.toUTCString();
+    return a.toDateString();
   }
 
   useEffect(() => {
