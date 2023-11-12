@@ -48,11 +48,7 @@ const Navbar = () => {
     <div className='hidden items-center space-x-4 sm:flex'>
       {!userId ? (
         <>
-          <Link href='/how-it-works' passHref>
-            <span className={buttonVariants({ variant: 'ghost', size: 'sm' })}>
-              How it works
-            </span>
-          </Link>
+ 
 
           <Link href='/demo' passHref>
             <span className={buttonVariants({ variant: 'ghost', size: 'sm' })}>
@@ -79,6 +75,12 @@ const Navbar = () => {
       Dashboard
     </span>
   </Link>
+  
+  <Link href='/demo' passHref>
+            <span className={buttonVariants({ variant: 'ghost', size: 'sm' })}>
+              Demo
+            </span>
+          </Link>
   <Link href='/pricing' passHref>
             <span className={buttonVariants({ variant: 'ghost', size: 'sm' })}>
               Pricing

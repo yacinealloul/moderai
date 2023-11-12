@@ -1,24 +1,45 @@
 "use client";
 import React, { useState } from 'react';
+import axios from 'axios';
 
+import { useAuth } from '@clerk/nextjs';
+import { showToast } from 'react-next-toast';
 
-const Playground: React.FC = () => {
+const Playground = () => {
     const [content, setContent] = useState('');
     const [moderationContext, setModerationContext] = useState('');
     const [response, setResponse] = useState('');
-  
+    const {userId} = useAuth();
 
-    const handleModerate = () => {
-        console.log('Content to moderate:', content, 'with context:', moderationContext);
-        setResponse(`{
-  "status": "Moderated",
-  "message": "This is a safe content!"
-}`);
-    };
+    const handleModerate = async () => {
+        console.log('Content to moderate:', content);
+        if (!userId){
+            showToast.error('You must create an account to use flagged.ai')
+            return 
+        }
+        
+        const url = 'https://us-central1-moderai-c1f42.cloudfunctions.net/api/check';
+        const sk = 'sk-'+userId;
+        const headers = {
+            'Authorization': `Bearer `+sk
+        };
+        const data = {
+            message: response
+        };
+
+        axios.post(url, data, { headers: headers })
+        .then(response => {
+            console.log(response.data);
+            setResponse(response.data)
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+ 
+    }
 
     return (
 <div className="min-h-screen bg-gray-100 flex flex-col items-center justify-center">
-    {/* Header */}
     <div className="text-center mb-12">
         <h2 className="text-4xl font-extrabold mb-2 text-gray-700">Playground</h2>
         <p className="text-lg text-gray-600">Test your moderation API in real-time.</p>

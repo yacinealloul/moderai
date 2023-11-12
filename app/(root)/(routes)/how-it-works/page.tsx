@@ -9,10 +9,6 @@ import Image from 'next/image';
 export default function HowItWorks() {
   const { userId } = useAuth();
 
-  // If a user is logged in, you might want to redirect them to the dashboard or elsewhere as needed.
-  // if (userId){
-  //   return redirect('/dashboard');
-  // }
 
   return (
 <div className="min-h-screen bg-gray-100 text-gray-900 antialiased">
