@@ -53,7 +53,7 @@ export async function POST(req: Request) {
     if (!snapshotDocKey.exists){
       return new NextResponse('The account is not recognized contact the owner');
     }
-    if (type == '1'){
+    if (type === '1'){
       await docKey.set({'remainingRequests':20000},{merge:true});
 
     }
