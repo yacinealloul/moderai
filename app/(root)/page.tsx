@@ -184,7 +184,7 @@ export default function Home() {
             <div className="flex flex-col md:flex-row md:space-x-6">
                 <div className="md:flex-1 mb-6 md:mb-0">
                     <div className="p-4 border border-zinc-300 rounded-lg">
-                        <p className="text-zinc-700 italic">"Using flagged.ai to moderate my chat has helped a lot to manage my community. The accuracy and efficiency are unmatched."</p>
+                        <p className="text-zinc-700 italic">Using flagged.ai to moderate my chat has helped a lot to manage my community. The accuracy and efficiency are unmatched.&quot;</p>
                         <div className="mt-4">
                             <span className="font-medium text-zinc-800">Judith Doe</span>
                             <span className="text-sm text-zinc-600"> - Streamer</span>
@@ -193,7 +193,7 @@ export default function Home() {
                 </div>
                 <div className="md:flex-1">
                     <div className="p-4 border border-zinc-300 rounded-lg">
-                        <p className="text-zinc-700 italic">"I was skeptical at first, but flagged.ai proved to be a game-changer for my business. Highly recommend!"</p>
+                        <p className="text-zinc-700 italic">&quot;I was skeptical at first, but flagged.ai proved to be a game-changer for my business. Highly recommend!&quot;</p>
                         <div className="mt-4">
                             <span className="font-medium text-zinc-800">Harry Penguin</span>
                             <span className="text-sm text-zinc-600"> - Indie Hacker</span>
