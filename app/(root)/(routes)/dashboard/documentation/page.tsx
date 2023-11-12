@@ -26,7 +26,7 @@ const endpoints: Endpoint[] = [
     }), 
     headers={
             "Content-Type": "application/json",
-            "Authorization": "Bearer sk-user_2V2RJqN5CCk5UGrnOjwltF97ant"
+            "Authorization": "Bearer [APIKEY]"
         })
     print(response.text)
     `,
