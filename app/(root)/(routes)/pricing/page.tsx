@@ -7,6 +7,7 @@ import { useAuth } from '@clerk/nextjs';
 
 const Pricing =  () => {  
     const {userId} = useAuth();
+    //console.log(userId);
     var logged;
     if (userId){
         logged = true;
@@ -14,7 +15,7 @@ const Pricing =  () => {
     else{
         logged = false;
     }
-   
+    //console.log(logged);
     return (
         <PricingPanel logged={logged}></PricingPanel>
     );

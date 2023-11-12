@@ -5,9 +5,7 @@ interface Endpoint {
   name: string;
   method: string;
   description: string;
-  curlExample: string;
   pythonExample: string;
-  nodeExample: string;
 }
 
 const endpoints: Endpoint[] = [
@@ -15,40 +13,24 @@ const endpoints: Endpoint[] = [
     name: "/check",
     method: "POST",
     description: "This endpoint checks the moderation status of a message.",
-    curlExample: "curl -X POST https://us-central1-moderai-c1f42.cloudfunctions.net/api/check -H 'Authorization: Bearer YOUR_KEY' -d '{\"message\":\"test\"}'",
     pythonExample: `
-import requests
+    import requests, json
 
-url = 'https://us-central1-moderai-c1f42.cloudfunctions.net/api/check'
-headers = {
-    'Authorization': 'Bearer YOUR_KEY'
-}
-data = {
-    'message': 'test'
-}
-
-response = requests.post(url, headers=headers, json=data)
-print(response.json())
+    api_url = "https://us-central1-moderai-c1f42.cloudfunctions.net/api/check"
+    
+    
+    message = input("Message: ")
+    response = requests.post(api_url, data=json.dumps({
+            "input": message,
+            "filters": ["*"]
+    }), 
+    headers={
+            "Content-Type": "application/json",
+            "Authorization": "Bearer sk-user_2V2RJqN5CCk5UGrnOjwltF97ant"
+        })
+    print(response.text)
     `,
-    nodeExample: `
-const axios = require('axios');
 
-const url = 'https://us-central1-moderai-c1f42.cloudfunctions.net/api/check';
-const headers = {
-    'Authorization': 'Bearer YOUR_KEY'
-};
-const data = {
-    message: 'test'
-};
-
-axios.post(url, data, { headers: headers })
-  .then(response => {
-    console.log(response.data);
-  })
-  .catch(error => {
-    console.error('Error:', error);
-  });
-    `
   // Add other endpoints here
 }
 ];
@@ -80,21 +62,14 @@ const Documentation: React.FC = () => {
           <>
             <h2 className="text-2xl mb-6">{selectedEndpoint.method} {selectedEndpoint.name}</h2>
             <p className="text-gray-600 mb-4">{selectedEndpoint.description}</p>
-            
-            <h3 className="text-xl mb-2">cURL Example:</h3>
-            <pre className="bg-gray-800 p-4 rounded text-white mb-4">
-              {selectedEndpoint.curlExample}
-            </pre>
+              
             
             <h3 className="text-xl mb-2">Python Example:</h3>
             <pre className="bg-gray-800 p-4 rounded text-white mb-4">
               {selectedEndpoint.pythonExample}
             </pre>
 
-            <h3 className="text-xl mb-2">Node.js Example:</h3>
-            <pre className="bg-gray-800 p-4 rounded text-white">
-              {selectedEndpoint.nodeExample}
-            </pre>
+
           </>
         )}
       </div>
