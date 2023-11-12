@@ -45,15 +45,15 @@ export async function POST(req: Request) {
     if (!session?.metadata?.tier){
       return new NextResponse('Tier is required',{status:400})
     }
-    const remainingTier = [20000,200000];
-    const newRemaining = remainingTier[Number(session?.metadata?.tier)];
     const apiKeyUser = 'sk-' + session?.metadata?.userId;
-    const docKey = db.collection('keys').doc(apiKeyUser);
+    const docKey  = db.collection('keys').doc(apiKeyUser);
     const snapshotDocKey = await docKey.get();
     if (!snapshotDocKey.exists){
       return new NextResponse('The account is not recognized contact the owner');
     }
-    await docKey.set({'remainingRequests':newRemaining},{merge:true})
+
+    await docKey.set({'remainingRequests':20000},{merge:true});
+
 
   
 // TO DO: Update the subscription collection.
