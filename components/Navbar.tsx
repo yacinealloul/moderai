@@ -50,11 +50,7 @@ const Navbar = () => {
         <>
  
 
-          <Link href='/demo' passHref>
-            <span className={buttonVariants({ variant: 'ghost', size: 'sm' })}>
-              Demo
-            </span>
-          </Link>
+  
 
           <Link href='/sign-in' passHref>
             <span className={buttonVariants({ variant: 'ghost', size: 'sm' })}>
@@ -75,12 +71,7 @@ const Navbar = () => {
       Dashboard
     </span>
   </Link>
-  
-  <Link href='/demo' passHref>
-            <span className={buttonVariants({ variant: 'ghost', size: 'sm' })}>
-              Demo
-            </span>
-          </Link>
+
   <Link href='/pricing' passHref>
             <span className={buttonVariants({ variant: 'ghost', size: 'sm' })}>
               Pricing
