@@ -45,34 +45,18 @@ export async function POST(req: Request) {
     if (!session?.metadata?.tier){
       return new NextResponse('Tier is required',{status:400})
     }
-    var id:number;
-    id = Number(session?.metadata?.tier)
-    var tier = ['project','business']
-    const remainingRequest:any = {
-      'project':20000,
-      'business':20000,
+    const remainingTier = [20000,200000];
+    const newRemaining = remainingTier[Number(session?.metadata?.tier)];
+    const apiKeyUser = 'sk' + session?.metadata?.userId;
+    const docKey = db.collection('keys').doc(apiKeyUser);
+    const snapshotDocKey = await docKey.get();
+    if (!snapshotDocKey.exists){
+      return new NextResponse('The account is not recognized contact the owner');
     }
-    const docRef =  db.collection('subscription').doc(session?.metadata?.userId)
-    const docSnapshot = await docRef.get();
-    if (!docSnapshot.exists){
-      await docRef.set({
-        'sid':session?.metadata?.userId,
-        'uid':session?.metadata?.userId,
-        'tier': tier[id-1]
-      })
-    }
-    else{
-      docRef.set({'tier':tier[id-1]},{merge:true})
-      // We need to add the credits.
+    await docKey.set({'remainingRequests':newRemaining},{merge:true})
 
-      const docCreditsRef = db.collection('keys').doc(session?.metadata?.userId);
-      const docSnapshotCredits:any = await docCreditsRef.get();
-
-      await docCreditsRef.set({'remainingRequests':docSnapshotCredits.data?.remainingRequests+remainingRequest[tier[id-1]]},{merge:true})
-      
-
-    }
-
+  
+// TO DO: Update the subscription collection.
  
   
   }
@@ -97,5 +81,5 @@ export async function POST(req: Request) {
 */}
   }
 
-  return new NextResponse(null, { status: 200 })
+  return new NextResponse('Completed', { status: 200 })
 };
