@@ -178,31 +178,7 @@ export default function Home() {
           </div>
         </div>
         <br />
-        <section className="bg-zinc-100 py-8 px-4 rounded-xl">
-        <div className="container mx-auto rounded-xl">
-            <h2 className="text-2xl font-semibold text-center text-zinc-800 mb-6">What Our Users Say</h2>
-            <div className="flex flex-col md:flex-row md:space-x-6">
-                <div className="md:flex-1 mb-6 md:mb-0">
-                    <div className="p-4 border border-zinc-300 rounded-lg">
-                        <p className="text-zinc-700 italic">Using flagged.ai to moderate my chat has helped a lot to manage my community. The accuracy and efficiency are unmatched.&quot;</p>
-                        <div className="mt-4">
-                            <span className="font-medium text-zinc-800">Judith Doe</span>
-                            <span className="text-sm text-zinc-600"> - Streamer</span>
-                        </div>
-                    </div>
-                </div>
-                <div className="md:flex-1">
-                    <div className="p-4 border border-zinc-300 rounded-lg">
-                        <p className="text-zinc-700 italic">&quot;I was skeptical at first, but flagged.ai proved to be a game-changer for my business. Highly recommend!&quot;</p>
-                        <div className="mt-4">
-                            <span className="font-medium text-zinc-800">Harry Penguin</span>
-                            <span className="text-sm text-zinc-600"> - Indie Hacker</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+
 
         <footer className='bg-current/10 py-6 mt-8'>
         <div className='container mx-auto px-4'>
