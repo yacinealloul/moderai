@@ -47,7 +47,7 @@ export async function POST(req: Request) {
     }
     const remainingTier = [20000,200000];
     const newRemaining = remainingTier[Number(session?.metadata?.tier)];
-    const apiKeyUser = 'sk' + session?.metadata?.userId;
+    const apiKeyUser = 'sk-' + session?.metadata?.userId;
     const docKey = db.collection('keys').doc(apiKeyUser);
     const snapshotDocKey = await docKey.get();
     if (!snapshotDocKey.exists){
