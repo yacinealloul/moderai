@@ -90,5 +90,5 @@ export async function POST(req: Request) {
 */}
   }
 
-  return new NextResponse('Completed', { status: 200 })
+  return new NextResponse('Completed'+  session?.metadata?.tier, { status: 200 })
 };
