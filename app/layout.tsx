@@ -19,23 +19,30 @@ export default function RootLayout({
     <html lang="en">
       <head>
         
-  <title>Flagged.ai | Seamless API Moderation</title>
-  <meta name="description" content="Integrate Flagged.ai for efficient content moderation solutions in your application."/>
+  <title>flagged.ai</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="title" content="flagged.ai" />
+    <meta name="description" content="Integrate flagged.ai for efficient content moderation solutions in your application." />
+    <meta name="keywords" content="AI, content moderation, API, web service, automated moderation, safe content, Flagged.ai, efficient moderation" />
+    <meta name="author" content="TrueLabs" />
+    <meta http-equiv="Content-Language" content="en" />
 
-  <meta property="og:url" content="https://www.flagged.ai/"/>
-  <meta property="og:type" content="website"/>
-  <meta property="og:title" content="Flagged.ai | Seamless API Moderation"/>
-  <meta property="og:description" content="Integrate Flagged.ai for efficient content moderation solutions in your application."/>
-  <meta property="og:image" content="https://media.discordapp.net/attachments/1005203757275029606/1160333006716805200/Untitled.png?ex=65344752&is=6521d252&hm=80ad23884fe24bcd0382f77058185365f645e381169975ad9afa821aa7221e4"/>
-  <meta property="og:site_name" content="Flagged AI"/>
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.flagged.ai/" />
+    <meta property="og:title" content="flagged.ai" />
+    <meta property="og:description" content="Integrate flagged.ai for efficient content moderation solutions in your application." />
+    <meta property="og:image" content="https://www.flagged.ai/og.png" />
+    <meta property="og:site_name" content="flagged.ai" />
 
-  <meta name="twitter:card" content="summary_large_image"/>
-  <meta property="twitter:domain" content="flagged.ai"/>
-  <meta property="twitter:url" content="https://www.flagged.ai/"/>
-  <meta name="twitter:title" content="Flagged.ai | Seamless API Moderation"/>
-  <meta name="twitter:description" content="Integrate Flagged.ai for efficient content moderation solutions in your application."/>
-  <meta name="twitter:image" content="https://media.discordapp.net/attachments/1005203757275029606/1160333006716805200/Untitled.png?ex=65344752&is=6521d252&hm=80ad23884fe24bcd0382f77058185365f645e381169975ad9afa821aa7221e4"/>
+    {/* Twitter */}
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta property="twitter:domain" content="flagged.ai" />
+    <meta property="twitter:url" content="https://www.flagged.ai/" />
+    <meta name="twitter:title" content="flagged.ai" />
+    <meta name="twitter:description" content="Integrate flagged.ai for efficient content moderation solutions in your application." />
+    <meta name="twitter:image" content="https://www.flagged.ai/og.png" />
 
+    <link rel="canonical" href="https://www.flagged.ai/" />
         
       </head>
       <body className={inter.className}>
