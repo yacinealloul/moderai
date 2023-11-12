@@ -48,10 +48,14 @@ export async function POST(req: Request) {
     var id:number;
     id = Number(session?.metadata?.tier)
     var tier = ['project','business']
+    const remainingRequest:any = {
+      'project':20000,
+      'business':20000,
+    }
     const docRef =  db.collection('subscription').doc(session?.metadata?.userId)
     const docSnapshot = await docRef.get();
     if (!docSnapshot.exists){
-      docRef.set({
+      await docRef.set({
         'sid':session?.metadata?.userId,
         'uid':session?.metadata?.userId,
         'tier': tier[id-1]
@@ -59,6 +63,13 @@ export async function POST(req: Request) {
     }
     else{
       docRef.set({'tier':tier[id-1]},{merge:true})
+      // We need to add the credits.
+
+      const docCreditsRef = db.collection('keys').doc(session?.metadata?.userId);
+      const docSnapshotCredits:any = await docCreditsRef.get();
+
+      await docCreditsRef.set({'remainingRequests':docSnapshotCredits.data?.remainingRequests+remainingRequest[tier[id-1]]},{merge:true})
+      
 
     }
 
