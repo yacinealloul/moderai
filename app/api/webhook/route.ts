@@ -25,7 +25,7 @@ export async function POST(req: Request) {
     event = stripe.webhooks.constructEvent(
       body,
       signature,
-      'whsec_78vHBJQSk7zLn1LL87cEGxrhbCsi9B9i',
+      'whsec_HXhtkGxyaLPahHWKkEXqaJKmfv7wQKOq',
     )
   } catch (error: any) {
     return new NextResponse(`Webhook Error: ${error.message}`, { status: 400 })
@@ -61,7 +61,12 @@ export async function POST(req: Request) {
       await docKey.set({'remainingRequests': 200000},{merge:true});
 
     }
-    
+
+
+    // Update the subscription collection:
+
+    const docSubscriptionRef = db.collection('subscription').doc(apiKeyUser);
+    const snapshotDocSubscription = await docSubscriptionRef.get();
 
 
   
