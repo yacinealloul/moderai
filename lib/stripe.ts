@@ -1,6 +1,6 @@
 import Stripe from "stripe";
 
-export const stripe = new Stripe("sk_test_51OBabYFaxjWwud8ySfVoTk1LHUBOI5tnbytkQnzd9NB5EOeO5VDb2UyODBfJ9zmwBUYT2qOgXNqubbMhM2rq0pyd00u3T25Ugc", {
+export const stripe = new Stripe("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", {
   apiVersion: "2023-08-16",
   typescript: true,
 });
